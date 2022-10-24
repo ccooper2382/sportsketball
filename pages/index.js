@@ -1,27 +1,26 @@
 import styles from '../styles/Home.module.css'
+import {useState} from "react";
 
 export default function Home() {
+
+    const [data, setData] = useState({});
+
+
+
     const callAPI = async () => {
 
-            const res = await fetch("https://v3.football.api-sports.io/countries", {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": "XxXxXxXxXxXxXxXxXxXxXxXx"
-                }
-            })
-                .then(response => {
-                    console.log(response);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
+        fetch('https://api.github.com/users/ccooper2382/repos')
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+
+
         };
 
   return (
       <div className={styles.container}>
           <main className={styles.main}>
-              <button onClick={callAPI}>Make API Call</button>
+              <button onClick={callAPI}> clicky</button>
           </main>
       </div>
   )
